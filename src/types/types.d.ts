@@ -21,4 +21,23 @@ export interface IPostCardsContainerProps {
 
 export interface IInitialState {
   data: null | IPostCardProps[];
+  searchHidden: boolean;
+  createPostHidden: boolean;
+  internetConnected: boolean;
+}
+
+export interface ISearchForm {
+  title: string;
+  author: string;
+  content: string;
+}
+
+export interface ISearchErrors {
+  title?: string;
+  author?: string;
+  content?: string;
+}
+
+export interface ICloseButton {
+  handleClose: () => void;
 }
