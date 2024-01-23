@@ -12,3 +12,15 @@ export async function getPosts() {
     throw new Error("Failed to fetch posts");
   }
 }
+
+export async function getPost(postId: string) {
+  try {
+    const post = await PostModel.findOne({ where: { id: postId } });
+    if (!post) throw new Error("This post does not exist");
+
+    return post.dataValues;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch posts");
+  }
+}
